@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538a6693-c6b0-451c-82cd-82270063eb15" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectBoost/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectBoost/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/Body.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/Body.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/Fins.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/Fins.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/Glass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/Glass.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/MetalBelt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AtomRocket/Mesh/Materials/MetalBelt.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FinishPlatMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FinishPlatMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/GroundMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/GroundMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/LaunchPlatMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LaunchPlatMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/ObstacleMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/ObstacleMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PortalMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PortalMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SandBox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SandBox.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/UniversalRenderPipelineAsset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/UniversalRenderPipelineAsset_Renderer.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +64,7 @@
       <workItem from="1640854656565" duration="2710000" />
       <workItem from="1640861060778" duration="2633000" />
       <workItem from="1640930256506" duration="1174000" />
+      <workItem from="1640957184105" duration="1000" />
     </task>
     <servers />
   </component>

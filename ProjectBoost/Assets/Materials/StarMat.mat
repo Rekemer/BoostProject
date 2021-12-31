@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PortalMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 2c1cc4c3d60ee024e86bdd04f21d6022, type: 3}
+  m_Name: StarMat
+  m_Shader: {fileID: -6465566751694194690, guid: 87d427166aff57847bd3eff44276b325, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -63,10 +63,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2D:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -81,7 +77,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Speed: 0.28
+    - CellDensity: 251.56
+    - SolarFlare: 95.14
+    - Speed: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -108,13 +106,16 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - speed: 7.43
     m_Colors:
+    - BaseColor: {r: 0.21135381, g: 1.5450689, b: 1.3236688, a: 0}
+    - CellColor: {r: 0.40980276, g: 0.8196055, b: 3.190607, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 25.688938, g: 2.420947, b: 0.13449706, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &4365460657546650796
+--- !u!114 &6595554640423313380
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
