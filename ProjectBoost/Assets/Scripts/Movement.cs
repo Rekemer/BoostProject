@@ -9,11 +9,13 @@ public class Movement : MonoBehaviour
     [SerializeField] private float mainThrust = 100f;
     private Rigidbody rd;
     private AudioSource sfxSound;
+    private ParticleSystemController _particleSystemController;
     public bool CanMove { get; set; } = true;
     private void Awake()
     {
         rd = GetComponent<Rigidbody>();
         sfxSound = GetComponent<AudioSource>();
+        _particleSystemController = GetComponent<ParticleSystemController>();
     }
 
     void Start()
@@ -31,6 +33,10 @@ public class Movement : MonoBehaviour
             RotateRight();
             RotateLeft();
         }
+        else
+        {
+            _particleSystemController.StopParticles();
+        }
        
     }
 
@@ -44,6 +50,7 @@ public class Movement : MonoBehaviour
                 if (!sfxSound.isPlaying)
                 {
                     sfxSound.Play();
+                    _particleSystemController.PlayParticle();
                 }
             }
         }
@@ -52,7 +59,9 @@ public class Movement : MonoBehaviour
             if (sfxSound != null)
             {
                 sfxSound.Stop();
+               
             }
+            _particleSystemController.StopParticles();
         }
     }
 
