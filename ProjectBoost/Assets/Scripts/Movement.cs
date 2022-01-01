@@ -2,20 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float mainThrust = 100f;
+    [SerializeField] private float RotationSpeed = 50f;
     private Rigidbody rd;
     private AudioSource sfxSound;
     private ParticleSystemController _particleSystemController;
+    private VisualEffectController _visualEffectController;
     public bool CanMove { get; set; } = true;
     private void Awake()
     {
         rd = GetComponent<Rigidbody>();
         sfxSound = GetComponent<AudioSource>();
         _particleSystemController = GetComponent<ParticleSystemController>();
+        _visualEffectController = GetComponent<VisualEffectController>();
     }
 
     void Start()
@@ -35,7 +39,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            _particleSystemController.StopParticles();
+            _visualEffectController.StopVisualEffect();
         }
        
     }
@@ -50,7 +54,7 @@ public class Movement : MonoBehaviour
                 if (!sfxSound.isPlaying)
                 {
                     sfxSound.Play();
-                    _particleSystemController.PlayParticle();
+                    _visualEffectController.PlayVisualEffect();
                 }
             }
         }
@@ -61,7 +65,7 @@ public class Movement : MonoBehaviour
                 sfxSound.Stop();
                
             }
-            _particleSystemController.StopParticles();
+            _visualEffectController.StopVisualEffect();
         }
     }
 
@@ -70,7 +74,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             rd.freezeRotation = true;
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(Vector3.forward * RotationSpeed);
             rd.freezeRotation = false;
         }
     }
@@ -80,7 +84,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rd.freezeRotation = true;
-            transform.Rotate(-Vector3.forward);
+            transform.Rotate(-Vector3.forward * RotationSpeed);
             rd.freezeRotation = false;
         }
     }

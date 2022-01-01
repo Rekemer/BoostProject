@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538a6693-c6b0-451c-82cd-82270063eb15" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PortalMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PortalMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectBoost/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectBoost/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SandBox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SandBox.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/UniversalRenderPipelineAsset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/UniversalRenderPipelineAsset_Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/StarShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/StarShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Trail_Shader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Trail_Shader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +18,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.searcher@4.3.2/Editor/Searcher/SearcherHighlighter.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="22xLtOr42FPGppaNZv1kDwnU35S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -65,6 +73,7 @@
       <workItem from="1640861060778" duration="2633000" />
       <workItem from="1640930256506" duration="1174000" />
       <workItem from="1640957184105" duration="1000" />
+      <workItem from="1641018482743" duration="1668000" />
     </task>
     <servers />
   </component>
