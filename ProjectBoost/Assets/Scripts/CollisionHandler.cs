@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    private AudioSource _thrustSound;
+    private Destructable _destructable;
 
     private bool isTransitioning;
     // Start is called before the first frame update
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _thrustSound = GetComponent<AudioSource>();
+        _destructable = GetComponent<Destructable>();
+
     }
 
     void Start()
@@ -27,8 +30,16 @@ public class CollisionHandler : MonoBehaviour
         {
             isTransitioning = true;
             GetComponent<Movement>().CanMove = false;
-            _audioSource.Stop();
             sound.PlaySound();
+            if ( _thrustSound != null)
+            {
+                _thrustSound.Stop();
+            }
+            if (_destructable != null)
+            {
+                _destructable.Activate();
+            }
+            
         }
     }
 }
