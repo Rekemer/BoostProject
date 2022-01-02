@@ -9,7 +9,10 @@ public class Destructable : MonoBehaviour
 
     public void Activate()
     {
-        Instantiate(_gameObject, transform.position, Quaternion.identity);
+        if (_gameObject != null)
+        {
+            Instantiate(_gameObject, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 
