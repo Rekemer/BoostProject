@@ -7,7 +7,19 @@ using UnityEngine;
 
 public class BlackHoleEffect : MonoBehaviour
 {
-    public Vector3 BlackHolePos;
+    private Vector3 _blackHolePos;
+    public Vector3 BlackHolePos
+    {
+        get => _blackHolePos;
+        set
+        {
+            _blackHolePos = value;
+            foreach (var material in _materials)
+            {
+                material.SetVector("_blackHole", new Vector4(_blackHolePos.x, _blackHolePos.y, _blackHolePos.z, 0));
+            }
+        }
+    }
 
     [SerializeField] [Range(0, 1)] private float effect;
     public List<Material> _materials = new List<Material>();
@@ -44,22 +56,21 @@ public class BlackHoleEffect : MonoBehaviour
 
     public void SuckInEffect()
     {
-        IsPlaying = true;
+        
         StartCoroutine(SuckingInRoutine());
-        IsPlaying = false;
+        
     }
 
     public void UnsuckInEffect()
     {
-        IsPlaying = true;
         StartCoroutine(UnuckingInRoutine());
-        IsPlaying = false;
     }
 
-    IEnumerator UnuckingInRoutine()
+    public IEnumerator UnuckingInRoutine()
     {
         int limit = 0;
         float elapsedTime = 0f;
+        IsPlaying = true;
         effect = 1;
         while ( effect > 0 + float.Epsilon   )
         {
@@ -69,10 +80,10 @@ public class BlackHoleEffect : MonoBehaviour
             }
             elapsedTime += Time.deltaTime;
             limit++;
-          //  Debug.Log("LimitOut" + limit);
+            //Debug.Log("LimitOut" + limit);
             float t = Mathf.Clamp(elapsedTime / TimeToSuckIn, 0f, 1f);
-            var interpolator = Mathf.Clamp01( Lerp(t, _typeOfSuckingIn));
-            Debug.Log("Interpolator" + interpolator);
+            var interpolator = Mathf.Clamp01( Lerp(t, InterType.Linear));
+           // Debug.Log("Interpolator" + interpolator);
             foreach (var material in _materials)
             {
                 effect =  Mathf.Abs(1 - interpolator) ;
@@ -81,12 +92,14 @@ public class BlackHoleEffect : MonoBehaviour
             }
             yield return null;
         }
-
+        IsPlaying = false;
         effect = 0;
     }
     
-    IEnumerator SuckingInRoutine()
+    public IEnumerator SuckingInRoutine()
     {
+        
+        IsPlaying = true;
         int limit = 0;
         float elapsedTime = 0f;
         effect = 0;
@@ -98,7 +111,7 @@ public class BlackHoleEffect : MonoBehaviour
             }
             elapsedTime += Time.deltaTime;
             limit++;
-            Debug.Log("LimitIn" + limit);
+            //Debug.Log("LimitIn" + limit);
             float t = Mathf.Clamp(elapsedTime / TimeToSuckIn, 0f, 1f);
             effect = Lerp(t, _typeOfSuckingIn);
             foreach (var material in _materials)
@@ -107,13 +120,14 @@ public class BlackHoleEffect : MonoBehaviour
             }
             yield return null;
         }
-
+        
+        IsPlaying = false;
         effect = 1;
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(effect);
+       // Debug.Log(effect);
     }
 
     float Lerp(float t, InterType interpolation)

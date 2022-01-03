@@ -1,4 +1,4 @@
 ﻿public interface ICanSound
 {
-    void PlaySound();
+    void PlayEffect();
 }

@@ -14,7 +14,7 @@ public class Obstacle : MonoBehaviour, ICanSound
     }
     
 
-    public void PlaySound()
+    public void PlayEffect()
     {
         _source.clip = clip;
         _source.Play();

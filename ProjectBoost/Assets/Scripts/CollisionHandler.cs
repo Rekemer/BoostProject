@@ -25,21 +25,23 @@ public class CollisionHandler : MonoBehaviour
     // might need to refactor this
     private void OnCollisionEnter(Collision other)
     {
-        var sound = other.gameObject.GetComponent<ICanSound>();
-        if (sound != null && isTransitioning == false)
+        var effect = other.gameObject.GetComponent<ICanSound>();
+        var isFinish = other.gameObject.GetComponent<IFinish>();
+        if (effect != null && isTransitioning == false)
         {
             isTransitioning = true;
             GetComponent<Movement>().CanMove = false;
-            sound.PlaySound();
+            effect.PlayEffect();
             if ( _thrustSound != null)
             {
                 _thrustSound.Stop();
             }
-            if (_destructable != null)
+            if (_destructable != null && isFinish == null )
             {
                 _destructable.Activate();
             }
             
         }
     }
+    
 }

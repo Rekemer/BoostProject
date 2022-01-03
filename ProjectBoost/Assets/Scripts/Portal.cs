@@ -34,64 +34,26 @@ public class Portal : MonoBehaviour
         var effect = obj.GetComponent<BlackHoleEffect>();
         effect.BlackHolePos = transform.position;
         effect.UnsuckInEffect();
-        
     }
 
 
+   
     private void OnTriggerEnter(Collider other)
     {
-        if (_isPlayerOverlapping == true) return;
-        if (nextPortal != null)
-        {
-            var effect = other.GetComponent<BlackHoleEffect>();
-            effect.BlackHolePos = transform.position;
-            if (!effect.IsPlaying)
-            {
-                effect.SuckInEffect();
-                WaitForEffect(effect);
-            }
-        }
-    }
-
-    private void WaitForEffect(BlackHoleEffect effect)
-    {
-        StartCoroutine(WaitForEffectRoutine(effect));
-    }
-
-    IEnumerator WaitForEffectRoutine(BlackHoleEffect effect)
-    {
-        var limit = 0;
-        while (effect.IsPlaying)
-        {
-            //Debug.Log(effect.IsPlaying);
-            limit++;
-            if (limit > 1000)
-            {
-                break;
-            }
-
-            yield return null;
-        }
-
-        nextPortal.Teleport(effect.transform);
+        if (_isPlayerOverlapping) return;
         _isPlayerOverlapping = true;
+        var effect = other.GetComponent<BlackHoleEffect>();
+        effect.BlackHolePos = transform.position;
+        StartCoroutine(Waiting(effect));
+
     }
 
-    private void PlayEffect()
+    IEnumerator Waiting( BlackHoleEffect effect)
     {
-        StartCoroutine(PlayEffectRoutine());
+        yield return effect.SuckingInRoutine();
+        nextPortal.Teleport(effect.transform);
     }
-
-    private IEnumerator PlayEffectRoutine()
-    {
-        float t = 0;
-        while (t != 1)
-        {
-        }
-
-        yield return null;
-    }
-
+    
     private void OnTriggerExit(Collider other)
     {
         _isPlayerOverlapping = false;

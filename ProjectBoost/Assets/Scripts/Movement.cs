@@ -74,9 +74,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             //rd.freezeRotation = true;
-            // Quaternion deltaRotation = Quaternion.Euler(Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
-            // rd.MoveRotation(rd.rotation * deltaRotation);
-           transform.Rotate(Vector3.forward * RotationSpeed);
+             Quaternion deltaRotation = Quaternion.Euler(Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
+             rd.MoveRotation(rd.rotation * deltaRotation);
+           //transform.Rotate(Vector3.forward * RotationSpeed);
             //rd.freezeRotation = false;
             
         }
@@ -88,9 +88,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
           //  rd.freezeRotation = true;
-            // Quaternion deltaRotation = Quaternion.Euler(-Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
-            // rd.MoveRotation(rd.rotation * deltaRotation);
-            transform.Rotate(-Vector3.forward * RotationSpeed);
+            Quaternion deltaRotation = Quaternion.Euler(-Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
+             rd.MoveRotation(rd.rotation * deltaRotation);
+            //transform.Rotate(-Vector3.forward * RotationSpeed);
            // rd.freezeRotation = false;
             
         }
