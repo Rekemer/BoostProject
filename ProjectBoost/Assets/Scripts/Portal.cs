@@ -9,16 +9,21 @@ using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(AudioSource))]
 public class Portal : MonoBehaviour
 {
     [SerializeField] private Portal nextPortal;
     [SerializeField] private float radius;
     private SphereCollider _collider;
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip suckInSound;
+    [SerializeField] private AudioClip unsuckInSound;
     private bool _isPlayerOverlapping = false;
 
     private void Awake()
     {
         _collider = GetComponent<SphereCollider>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -34,6 +39,7 @@ public class Portal : MonoBehaviour
         var effect = obj.GetComponent<BlackHoleEffect>();
         effect.BlackHolePos = transform.position;
         effect.UnsuckInEffect();
+        
     }
 
 
@@ -43,14 +49,21 @@ public class Portal : MonoBehaviour
         if (_isPlayerOverlapping) return;
         _isPlayerOverlapping = true;
         var effect = other.GetComponent<BlackHoleEffect>();
-        effect.BlackHolePos = transform.position;
-        StartCoroutine(Waiting(effect));
+        if (effect != null)
+        {
+            effect.BlackHolePos = transform.position;
+            StartCoroutine(Waiting(effect));
+        }
+       
 
     }
 
     IEnumerator Waiting( BlackHoleEffect effect)
     {
         yield return effect.SuckingInRoutine();
+        _audioSource.clip = suckInSound;
+        _audioSource.Play();
+        if (effect != null)
         nextPortal.Teleport(effect.transform);
     }
     
@@ -64,13 +77,11 @@ public class Portal : MonoBehaviour
         var pos = transform.position;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(pos, radius);
+        if (nextPortal != null)
         Handles.DrawAAPolyLine(pos, nextPortal.transform.position);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, 1f);
-    }
+   
 #endif
     // Update is called once per frame
     void Update()

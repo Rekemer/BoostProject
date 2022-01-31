@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarMat
+  m_Name: StarMatYellow
   m_Shader: {fileID: -6465566751694194690, guid: 87d427166aff57847bd3eff44276b325, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -77,9 +77,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - CellDensity: 251.56
-    - SolarFlare: 95.14
-    - Speed: 1
+    - CellDensity: 47.8
+    - SolarFlare: 38
+    - Speed: 2.77
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -108,8 +108,8 @@ Material:
     - _ZWrite: 1
     - speed: 7.43
     m_Colors:
-    - BaseColor: {r: 0.21135381, g: 1.5450689, b: 1.3236688, a: 0}
-    - CellColor: {r: 0.40980276, g: 0.8196055, b: 3.190607, a: 0}
+    - BaseColor: {r: 0.36974508, g: 0.2878903, b: 0.057554666, a: 0}
+    - CellColor: {r: 0.49411765, g: 0.46605834, b: 0.062745094, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

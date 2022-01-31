@@ -48,7 +48,7 @@ MonoBehaviour:
   m_ImportDependencies: []
   m_GraphVersion: 6
   m_ResourceVersion: 1
-  m_saved: 0
+  m_saved: 1
   m_SubgraphDependencies: []
   m_CategoryPath: 
 --- !u!2058629511 &8926484042661614527
@@ -525,7 +525,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614585}
   dataType: 0
-  capacity: 200
+  capacity: 300
   stripCapacity: 16
   particlePerStripCount: 16
   m_Space: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots: []
   m_Disabled: 0
-  mode: 0
+  mode: 6
   axes: 4
 --- !u!114 &8926484042661614590
 MonoBehaviour:
@@ -743,7 +743,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.21666336059570313,"value":0.09433746337890625,"inTangent":2.0,"outTangent":2.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.25595664978027346,"value":0.4426397681236267,"inTangent":0.1836688220500946,"outTangent":0.1836688220500946,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.19583511352539063,"value":0.396240234375,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.21666336059570313,"value":0.09433746337890625,"inTangent":2.0,"outTangent":2.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.25595664978027346,"value":0.4426397681236267,"inTangent":0.1836688220500946,"outTangent":0.1836688220500946,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -1221,7 +1221,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.21077273786067964,"b":0.801886796951294,"a":1.0},"time":0.02058442123234272},{"color":{"r":0.9433962106704712,"g":0.6546154022216797,"b":0.0,"a":1.0},"time":0.4764782190322876},{"color":{"r":1.2211917638778687,"g":0.3029967248439789,"b":0.08311777561903,"a":1.0},"time":0.8882429003715515}],"alphaKeys":[{"alpha":1.0,"time":0.014709697104990483},{"alpha":1.0,"time":0.2852979302406311},{"alpha":0.40392157435417178,"time":0.7617608904838562}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.21077273786067964,"b":0.801886796951294,"a":1.0},"time":0.02058442123234272},{"color":{"r":0.9433962106704712,"g":0.6546154022216797,"b":0.0,"a":1.0},"time":0.4764782190322876},{"color":{"r":1.2211917638778687,"g":0.3029967248439789,"b":0.08311777561903,"a":1.0},"time":0.8882429003715515}],"alphaKeys":[{"alpha":1.0,"time":0.014709697104990483},{"alpha":1.0,"time":0.3205920457839966},{"alpha":0.10196078568696976,"time":0.8382391333580017}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -1283,7 +1283,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.19
+      m_SerializableObject: 0.22
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1317,7 +1317,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.64
+      m_SerializableObject: 0.43
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614662}
   m_OutputSlots: []
-  m_Disabled: 1
+  m_Disabled: 0
 --- !u!114 &8926484042661614662
 MonoBehaviour:
   m_ObjectHideFlags: 0

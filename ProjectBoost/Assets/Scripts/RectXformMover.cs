@@ -10,7 +10,7 @@ public class RectXformMover : MonoBehaviour
     public Vector3 posOnScreen;
     public Vector3 endPos;
     public float timeToMove;
-    private bool m_isMoving = false;
+    [HideInInspector]public bool IsMoving = false;
     private RectTransform _rectTransform;
     
     void Awake()
@@ -20,14 +20,12 @@ public class RectXformMover : MonoBehaviour
 
     private void Start()
     {
-        MoveOn();
-        Invoke("MoveOff",5f);
-       
+        _rectTransform.anchoredPosition = startPos;
     }
 
     public void Move( Vector3 startPos, Vector3 endPos , float timeToMove)
     {
-        if (!m_isMoving)
+        if (!IsMoving)
         {
             StartCoroutine(MoveRoutine(startPos, endPos, timeToMove));
         }
@@ -40,7 +38,7 @@ public class RectXformMover : MonoBehaviour
             yield break;
         }
         _rectTransform.anchoredPosition = startPos;
-        m_isMoving = true;
+        IsMoving = true;
         bool isReachedDestination = false;
         float elapsedTime = 0;
         while (!isReachedDestination)
@@ -58,7 +56,7 @@ public class RectXformMover : MonoBehaviour
             yield return null;
         }
 
-        m_isMoving = false;
+        IsMoving = false;
     }
 
     public void MoveOn()
@@ -69,4 +67,5 @@ public class RectXformMover : MonoBehaviour
     {
        Move(posOnScreen, endPos, timeToMove);
     }
+    
 }

@@ -2,17 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class CollisionHandler : MonoBehaviour
 {
-    private AudioSource _thrustSound;
+    private AudioPlayer _audioPlayer;
     private Destructable _destructable;
 
     private bool isTransitioning;
     // Start is called before the first frame update
     private void Awake()
     {
-        _thrustSound = GetComponent<AudioSource>();
+        _audioPlayer = GetComponent<AudioPlayer>();
         _destructable = GetComponent<Destructable>();
 
     }
@@ -25,16 +24,19 @@ public class CollisionHandler : MonoBehaviour
     // might need to refactor this
     private void OnCollisionEnter(Collision other)
     {
-        var effect = other.gameObject.GetComponent<ICanSound>();
+        var movement = GetComponent<Movement>();
+        if (movement.enabled == false) return;
+        var effect = other.gameObject.GetComponent<ICanEffect>();
         var isFinish = other.gameObject.GetComponent<IFinish>();
+       
         if (effect != null && isTransitioning == false)
         {
             isTransitioning = true;
-            GetComponent<Movement>().CanMove = false;
+           movement.CanMove = false;
             effect.PlayEffect();
-            if ( _thrustSound != null)
+            if ( _audioPlayer != null)
             {
-                _thrustSound.Stop();
+                _audioPlayer.Play();
             }
             if (_destructable != null && isFinish == null )
             {

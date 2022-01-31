@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
-public class FinishPoint : MonoBehaviour, ICanSound, IFinish
+public class FinishPoint : MonoBehaviour, ICanEffect, IFinish
 {
-    [SerializeField] private AudioClip clip;
+     private AudioPlayer _audioPlayer;
     [SerializeField] private ParticleSystem _particleSystem;
-    private AudioSource _source;
+    private GameManager _gameManager;
 
     private void Awake()
     {
-        _source = GetComponent<AudioSource>();
+        _gameManager = FindObjectOfType<GameManager>();
+        _audioPlayer = GetComponent<AudioPlayer>();
     }
     
 
     public void PlayEffect()
     {
-        if (_source != null)
+        if (_audioPlayer != null)
         {
-            _source.clip = clip;
-            _source.Play();
+            _audioPlayer.Play();
         }
 
         if (_particleSystem != null)
         {
            _particleSystem.Play();
         }
-       
+
+        _gameManager.IsWin = true;
+        _gameManager.IsGameOver = true;
+
     }
 }

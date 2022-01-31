@@ -6,19 +6,45 @@ using UnityEngine;
 public class Wind : MonoBehaviour
 {
     [SerializeField] Vector2 direction;
+    private List<Rigidbody> _rigidbodies = new List<Rigidbody>();
 
     void Start()
     {
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Rigidbody>().AddForce(direction);
+        var rigidbody = other.GetComponent<Rigidbody>();
+        if (rigidbody != null)
+        {
+            _rigidbodies.Add(rigidbody);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
+        var rigidbody = other.GetComponent<Rigidbody>();
+        if (rigidbody != null)
+        {
+            _rigidbodies.Remove(rigidbody);
+        }
+    }
+
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     other.gameObject.GetComponent<Rigidbody>().AddForce(direction);
+    // }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        foreach (var rigidbody1 in _rigidbodies)
+        {
+            if (rigidbody1 != null)
+            {
+                rigidbody1.AddForce( direction);
+            }
+        }
     }
 
     // private void OnDrawGizmos()

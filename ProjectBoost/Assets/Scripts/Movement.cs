@@ -10,16 +10,17 @@ public class Movement : MonoBehaviour
     [SerializeField] private float mainThrust = 100f;
     [SerializeField] private float RotationSpeed = 50f;
     private Rigidbody rd;
-    private AudioSource sfxSound;
-    private ParticleSystemController _particleSystemController;
+    private AudioPlayer _audioPlayer ;
     private VisualEffectController _visualEffectController;
+    [SerializeField] private ParticleSystemController _particleSystem;
     public bool CanMove { get; set; } = true;
     private void Awake()
     {
         rd = GetComponent<Rigidbody>();
-        sfxSound = GetComponent<AudioSource>();
-        _particleSystemController = GetComponent<ParticleSystemController>();
+        _audioPlayer = GetComponent<AudioPlayer>();
         _visualEffectController = GetComponent<VisualEffectController>();
+        _particleSystem = GetComponent<ParticleSystemController>();
+
     }
 
     void Start()
@@ -29,7 +30,7 @@ public class Movement : MonoBehaviour
      
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (CanMove)
         {
@@ -40,6 +41,8 @@ public class Movement : MonoBehaviour
         else
         {
             _visualEffectController.StopVisualEffect();
+            _audioPlayer.Stop();
+            _particleSystem.StopParticles();
         }
        
     }
@@ -49,23 +52,25 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             rd.AddRelativeForce(Vector3.up * Time.deltaTime * mainThrust);
-            if (sfxSound != null)
+            if (_audioPlayer != null)
             {
-                if (!sfxSound.isPlaying)
+                if (!_audioPlayer.IsPlaying)
                 {
-                    sfxSound.Play();
+                    _audioPlayer.Play();
                     _visualEffectController.PlayVisualEffect();
+                    _particleSystem.PlayParticle();
                 }
             }
         }
         else
         {
-            if (sfxSound != null)
+            if (_audioPlayer != null)
             {
-                sfxSound.Stop();
+                _audioPlayer.Stop();
                
             }
             _visualEffectController.StopVisualEffect();
+            _particleSystem.StopParticles();
         }
     }
 
@@ -74,9 +79,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             //rd.freezeRotation = true;
-             Quaternion deltaRotation = Quaternion.Euler(Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
-             rd.MoveRotation(rd.rotation * deltaRotation);
-           //transform.Rotate(Vector3.forward * RotationSpeed);
+            // Quaternion deltaRotation = Quaternion.Euler(Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
+             //rd.MoveRotation(rd.rotation * deltaRotation);
+           transform.Rotate(Vector3.forward * RotationSpeed);
             //rd.freezeRotation = false;
             
         }
@@ -88,9 +93,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
           //  rd.freezeRotation = true;
-            Quaternion deltaRotation = Quaternion.Euler(-Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
-             rd.MoveRotation(rd.rotation * deltaRotation);
-            //transform.Rotate(-Vector3.forward * RotationSpeed);
+           // Quaternion deltaRotation = Quaternion.Euler(-Vector3.forward * RotationSpeed * Time.fixedDeltaTime);
+           //  rd.MoveRotation(rd.rotation * deltaRotation);
+            transform.Rotate(-Vector3.forward * RotationSpeed);
            // rd.freezeRotation = false;
             
         }
